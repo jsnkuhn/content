@@ -11,9 +11,9 @@ tags:
 ---
 <div>{{CSSRef}}</div>
 
-<p class="summary">The <strong><code>image-set()</code></strong> <a href="/en-US/docs/Web/CSS">CSS</a> <a href="/en-US/docs/Web/CSS/CSS_Functions">function</a> notation is a method of letting the browser pick the most appropriate CSS image from a given set, primarily for high pixel density screens.</p>
+<p class="summary">The <strong><code>image-set()</code></strong> <a href="/en-US/docs/Web/CSS">CSS</a> <a href="/en-US/docs/Web/CSS/CSS_Functions">function</a> notation is a method of letting the browser pick the most appropriate CSS image from a given set of image options.</p>
 
-<p>Resolution and bandwidth differ by device and network access. The <code>image-set()</code> function delivers the most appropriate image resolution for a user’s device, providing a set of image options — each with an associated resolution declaration — from which the browser picks the most appropriate for the device and settings. Resolution can be used as a proxy for filesize — a user agent on a slow mobile connection with a high-resolution screen may prefer to receive lower-resolution images rather than waiting for a higher resolution image to load.</p>
+<p>Resolution, bandwidth and file type support differ by device, network access and browser version. The <code>image-set()</code> function delivers the most appropriate image resolution and/or file type for a user’s device and browser, providing a set of image options from which the browser picks the most appropriate for the device, settings and browser. Resolution can be used as a proxy for filesize — a user agent on a slow mobile connection with a high-resolution screen may prefer to receive lower-resolution images rather than waiting for a higher resolution image to load.</p>
 
 <p><code>image-set()</code> allows the author to provide options rather than determining what each individual user needs.</p>
 
@@ -28,15 +28,21 @@ where &lt;image-set-option&gt; = [ &lt;image&gt; | &lt;string&gt; ] &lt;resoluti
 
 <p>Most commonly you'll see an <code>url()</code> <code>&lt;string&gt;</code> value, but the <code><a href="/en-US/docs/Web/CSS/image">&lt;image&gt;</a></code> can be any image type except for an image set. The <code>image-set()</code> function can not be nested inside another <code>image-set()</code> function.</p>
 
-<p><code><a href="/en-US/docs/Web/CSS/resolution">&lt;resolution&gt;</a></code> units include <code>x</code> or <code>dppx</code>, for dots per pixel unit, <code>dpi</code>, for dots per inch, and <code>dpcm</code> for dots per centimeter. Every image within an <code>image-set()</code> must have a unique resolution.</p>
+<p><code><a href="/en-US/docs/Web/CSS/resolution">&lt;resolution&gt;</a></code> units include <code>x</code> or <code>dppx</code>, for dots per pixel unit, <code>dpi</code>, for dots per inch, and <code>dpcm</code> for dots per centimeter. Every image within an <code>image-set()</code> must have a unique resolution. Options with no resolution declaration are assumed to be 1x</p>
+
+<p>Types info here</p>
 
 <h2 id="Examples">Examples</h2>
 
-<h3 id="Using_image-set_to_provide_alternative_background-image_options">Using image-set() to provide alternative background-image options</h3>
+<h3 id="Using_image-set_to_provide_alternative_background-image_options_based_on_resolution">Using image-set() to provide alternative background-image options based on resolution</h3>
 
 <p>{{EmbedGHLiveSample("css-examples/images/image-set.html", '100%', 600)}}</p>
 
 <p>This example shows how to use <code><a class="css" href="https://drafts.csswg.org/css-images-4/#funcdef-image-set" id="ref-for-funcdef-image-set⑨">image-set()</a></code> to provide two alternative {{cssxref("background-image")}} options, chosen depending on the resolution needed: a normal version and a high-resolution version.</p>
+
+<h3 id="Using_image-set_to_provide_alternative_background-image_options_based_on_mime_type">Using image-set() to provide alternative background-image options based on file type</h3>
+
+<p>This example shows how to use <code><a class="css" href="https://drafts.csswg.org/css-images-4/#funcdef-image-set" id="ref-for-funcdef-image-set⑨">image-set()</a></code> to provide two alternative {{cssxref("background-image")}} options, chosen depending on browser file type support: an avif and a jpg.</p>
 
 <h2 id="Accessibility_concerns">Accessibility concerns</h2>
 
